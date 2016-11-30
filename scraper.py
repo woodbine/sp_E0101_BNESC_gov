@@ -111,6 +111,14 @@ for link in links:
             csvMth = csvYr[:3]
             csvYr = csvYr[-2:]
             csvYr = '20'+csvYr
+        if 'January - March' in link.text:
+            csvMth = 'Q1'
+        if 'April - June' in link.text:
+            csvMth = 'Q2'
+        if 'July - September' in link.text:
+            csvMth = 'Q3'
+        if 'October - December' in link.text:
+            csvMth = 'Q4'
         csvMth = convert_mth_strings(csvMth.upper())
         data.append([csvYr, csvMth, url])
 
